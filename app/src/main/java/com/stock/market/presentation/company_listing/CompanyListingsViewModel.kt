@@ -21,6 +21,10 @@ class CompanyListingsViewModel @Inject constructor(private val repository: Stock
     var state by mutableStateOf(CompanyListingState())
     private var searchJob: Job? = null
 
+    init {
+        getCompanyListings()
+    }
+
     fun onEvent(event: CompanyListingEvent) {
         when (event) {
             is CompanyListingEvent.Refresh -> {
@@ -38,7 +42,7 @@ class CompanyListingsViewModel @Inject constructor(private val repository: Stock
         }
     }
 
-    fun getCompanyListings(
+    private fun getCompanyListings(
         query: String = state.searchQuery,
         fetchFromRemote: Boolean = false
     ) {
