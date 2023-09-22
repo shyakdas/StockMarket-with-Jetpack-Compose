@@ -1,8 +1,9 @@
 package com.stock.market.data.repository
 
-import com.opencsv.CSVReader
+import com.stock.market.data.csv.CSVParser
 import com.stock.market.data.local.StockDatabase
 import com.stock.market.data.mapper.toCompanyListing
+import com.stock.market.data.mapper.toCompanyListingEntity
 import com.stock.market.data.remote.StockApi
 import com.stock.market.domain.model.CompanyListing
 import com.stock.market.domain.repository.StockRepository
@@ -11,12 +12,15 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import java.io.IOException
-import java.io.InputStreamReader
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class StockRepositoryImpl @Inject constructor(val api: StockApi, val db: StockDatabase) :
+class StockRepositoryImpl @Inject constructor(
+    val api: StockApi,
+    val db: StockDatabase,
+    val companyListingParser: CSVParser<CompanyListing>
+) :
     StockRepository {
 
     private val dao = db.dao
@@ -37,15 +41,27 @@ class StockRepositoryImpl @Inject constructor(val api: StockApi, val db: StockDa
                 emit(Resource.Loading(isLoading = false))
                 return@flow
             }
-            val remoteListing = try {
+            val remoteListings = try {
                 val response = api.getListing()
-
+                companyListingParser.parse(response.byteStream())
             } catch (e: IOException) {
                 e.printStackTrace()
                 emit(Resource.Error("Couldn't load data"))
+                null
             } catch (e: HttpException) {
                 e.printStackTrace()
                 emit(Resource.Error("Couldn't load data"))
+                null
+            }
+            remoteListings?.let { listings ->
+                dao.clearCompanyListing()
+                dao.insertCompanyListing(listings.map {
+                    it.toCompanyListingEntity()
+                })
+                emit(Resource.Success(data = dao.searchCompanyListing("").map {
+                    it.toCompanyListing()
+                }))
+                emit(Resource.Loading(false))
             }
         }
     }
