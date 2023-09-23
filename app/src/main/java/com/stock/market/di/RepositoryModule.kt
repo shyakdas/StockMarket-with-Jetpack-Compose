@@ -1,7 +1,7 @@
 package com.stock.market.di
 
 import com.stock.market.data.csv.CSVParser
-import com.stock.market.data.csv.CompanyListingParser
+import com.stock.market.data.csv.CompanyListingsParser
 import com.stock.market.data.repository.StockRepositoryImpl
 import com.stock.market.domain.model.CompanyListing
 import com.stock.market.domain.repository.StockRepository
@@ -17,7 +17,7 @@ abstract class RepositoryModule {
 
     @Binds
     @Singleton
-    abstract fun bindCompanyListingParser(companyListingParser: CompanyListingParser): CSVParser<CompanyListing>
+    abstract fun bindCompanyListingParser(companyListingParser: CompanyListingsParser): CSVParser<CompanyListing>
 
     @Binds
     @Singleton
