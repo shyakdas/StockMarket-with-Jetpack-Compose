@@ -17,6 +17,7 @@ import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
+import com.stock.market.presentation.destinations.CompanyInfoScreenDestination
 
 @Composable
 @Destination(start = true)
@@ -48,7 +49,7 @@ fun CompanyListingScreen(
                     CompanyItem(company = company, modifier = Modifier
                         .fillMaxWidth()
                         .clickable {
-                            // TODO: Navigate to Details screen
+                            navigator.navigate(CompanyInfoScreenDestination(company.symbol))
                         }.padding(16.dp))
                     if (i < state.companies.size) {
                         Divider(modifier = Modifier.padding(horizontal = 16.dp))

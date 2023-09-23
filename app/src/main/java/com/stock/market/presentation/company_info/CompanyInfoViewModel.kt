@@ -50,8 +50,7 @@ class CompanyInfoViewModel @Inject constructor(
                 }
 
                 is Resource.Error -> {
-                    state =
-                        state.copy(isLoading = false, error = result.message, companyInfo = null)
+                    state = state.copy(isLoading = false, error = result.message, companyInfo = null)
                 }
 
                 else -> Unit
