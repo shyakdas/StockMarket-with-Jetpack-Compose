@@ -48,7 +48,6 @@ class CompanyListingsViewModel @Inject constructor(private val repository: Stock
     ) {
         viewModelScope.launch {
             repository.getCompanyListing(fetchFromRemote, query).collect { result ->
-                println("Checking==${result.data}")
                 when (result) {
                     is Resource.Success -> {
                         result.data?.let { listings ->

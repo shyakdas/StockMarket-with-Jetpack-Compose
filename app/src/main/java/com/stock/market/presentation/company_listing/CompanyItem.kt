@@ -44,7 +44,7 @@ fun CompanyItem(company: CompanyListing, modifier: Modifier = Modifier) {
             Text(
                 text = "(${company.symbol})",
                 fontStyle = FontStyle.Italic,
-                color = MaterialTheme.colors.background
+                color = MaterialTheme.colors.onBackground
             )
         }
     }
