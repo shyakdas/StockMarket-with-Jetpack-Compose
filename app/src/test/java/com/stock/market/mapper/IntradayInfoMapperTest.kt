@@ -1,4 +1,4 @@
-package com.stock.market
+package com.stock.market.mapper
 
 import com.stock.market.data.mapper.toIntradayInfo
 import com.stock.market.data.remote.dto.IntradayInfoDto

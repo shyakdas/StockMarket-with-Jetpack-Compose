@@ -1,4 +1,4 @@
-package com.stock.market
+package com.stock.market.parser
 
 import com.opencsv.CSVReader
 import com.stock.market.data.csv.CompanyListingsParser

@@ -1,4 +1,4 @@
-package com.stock.market
+package com.stock.market.mapper
 
 import com.stock.market.data.local.CompanyListingEntity
 import com.stock.market.data.mapper.toCompanyInfo
