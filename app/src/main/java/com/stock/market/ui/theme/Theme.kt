@@ -6,6 +6,9 @@ import androidx.compose.material.darkColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
+/**
+ * A custom dark color palette for use in the application's theming.
+ */
 private val DarkColorPalette = darkColors(
     primary = Color.Green,
     background = DarkBlue,
@@ -13,6 +16,11 @@ private val DarkColorPalette = darkColors(
     onBackground = TextWhite
 )
 
+/**
+ * A Composable function for applying the StockMarketApp theme to the content.
+ *
+ * @param content The Composable content to apply the theme to.
+ */
 @Composable
 fun StockMarketAppTheme(
     content: @Composable () -> Unit

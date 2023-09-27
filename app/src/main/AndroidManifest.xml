@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- This permission is required to access the internet and make network requests. -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -15,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StockMarket"
         tools:targetApi="31">
+        <!-- The application element defines various settings and configurations for the app. -->
         <activity
             android:name=".MainActivity"
             android:exported="true"

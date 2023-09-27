@@ -20,6 +20,13 @@ import com.stock.market.domain.model.IntradayInfo
 import kotlin.math.round
 import kotlin.math.roundToInt
 
+/**
+ * A Composable function for displaying stock charts.
+ *
+ * @param infos A list of IntradayInfo representing stock information (default is an empty list).
+ * @param modifier Modifier for customizing the appearance and layout (default is no modifier).
+ * @param graphColor The color to use for the stock graph (default is green).
+ */
 @Composable
 fun StockCharts(
     infos: List<IntradayInfo> = emptyList(),

@@ -19,6 +19,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.stock.market.domain.model.CompanyListing
 
+/**
+ * A Composable function for displaying a single company item.
+ *
+ * @param company The company listing to display.
+ * @param modifier Modifier for customizing the appearance and layout (default is no modifier).
+ */
 @Composable
 fun CompanyItem(company: CompanyListing, modifier: Modifier = Modifier) {
     Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
@@ -50,6 +56,9 @@ fun CompanyItem(company: CompanyListing, modifier: Modifier = Modifier) {
     }
 }
 
+/**
+ * A Composable function for previewing the `CompanyItem` Composable.
+ */
 @Composable
 @Preview
 fun CompanyItemPreview() {

@@ -19,6 +19,13 @@ import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.stock.market.presentation.destinations.CompanyInfoScreenDestination
 
+/**
+ * A Composable function representing the CompanyListingScreen, annotated as a destination
+ * and set as the starting destination.
+ *
+ * @param navigator The DestinationsNavigator for navigating to different destinations.
+ * @param viewModel The view model for managing company listings (default provided via Hilt).
+ */
 @Composable
 @Destination(start = true)
 fun CompanyListingScreen(

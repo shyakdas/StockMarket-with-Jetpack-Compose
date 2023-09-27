@@ -25,7 +25,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.ramcosta.composedestinations.annotation.Destination
 import com.stock.market.ui.theme.DarkBlue
 
-
+/**
+ * A Composable function representing the CompanyInfoScreen, which is annotated as a destination.
+ *
+ * @param symbol The stock symbol for which to display company information.
+ * @param viewModel The view model for managing company information (default provided via Hilt).
+ */
 @Composable
 @Destination
 fun CompanyInfoScreen(symbol: String, viewModel: CompanyInfoViewModel = hiltViewModel()) {
