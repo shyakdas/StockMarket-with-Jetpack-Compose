@@ -57,7 +57,8 @@ fun CompanyListingScreen(
                         .fillMaxWidth()
                         .clickable {
                             navigator.navigate(CompanyInfoScreenDestination(company.symbol))
-                        }.padding(16.dp))
+                        }
+                        .padding(16.dp))
                     if (i < state.companies.size) {
                         Divider(modifier = Modifier.padding(horizontal = 16.dp))
                     }

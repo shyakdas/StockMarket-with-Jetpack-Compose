@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -102,4 +103,16 @@ fun CompanyInfoScreen(symbol: String, viewModel: CompanyInfoViewModel = hiltView
             Text(text = state.error, color = MaterialTheme.colors.error)
         }
     }
+}
+
+/**
+ * This function is used for generating a preview of the `CompanyInfoScreen` Composable.
+ * It displays information about a company with the given stock symbol.
+ *
+ * @param symbol The stock symbol of the company for which information is to be displayed.
+ */
+@Preview
+@Composable
+fun CompanyInfoScreenPreview(){
+    CompanyInfoScreen(symbol = "AAC")
 }
